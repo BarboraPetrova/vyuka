@@ -26,12 +26,20 @@ const algoSources = [
 
 /* Algoritmy - lectures */
 const algoLecture1 = {
+    id: "1",
     topic: "Úvod, opakování elementárních funkcí",
     date: "22. 9. 2026"
 }
 
+const algoLecture2 = {
+    id: "algo2",
+    topic: "...",
+    date: "29. 9. 2026"
+}
+
 const algoLectures = [
-    algoLecture1
+    algoLecture1,
+    algoLecture2
 ]
 
 /* Algoritmy */
