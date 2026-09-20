@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+
+main{
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10em;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+  font-weight: 300;
+  font-size: clamp(2rem, 5.4vw, 4rem);
+  line-height: 1.25;
+  margin: 0px 0px 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2{
+  margin-top: 6rem;
+  padding-bottom: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(18, 41, 31);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h3{
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+.Course-box {
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgb(18, 41, 31);
+  cursor: pointer;
+}
+
+.Course-shortcut{
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  font-style: normal;
+}
+
+.Course-meta{
+  display: flex;
+  font-size: 0.75rem;
+}
+
+.Course-meta > span:not(:last-child)::after  {
+ content: "·";
+ position: relative;
+ height: 10px;
+ margin: 0 1rem;
+}
+
+footer{
+  margin-top: 6rem;
+  border-top: 1px solid rgb(18, 41, 31);
+}
+
+header{
+  border-bottom: 1px solid rgb(18, 41, 31);
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-content{
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  
+}
+
+.footer-content a{
+  font-size: 0.75rem;
+}
+
+.footer-content a::before{
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: -0.15em;
+  margin-right: 0.4em;
+}
+
+.email::before{
+  background-image: url(./assets/email.svg);
+}
+
+.discord::before{
+  background-image: url(./assets/discord.svg);
+}
+
+.Back-link{
+  position: absolute;
+  top: 4rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+}
+
+.Back-link:hover{
+  border-bottom: 1px solid;
+  padding-bottom: 6px
+}
+
+.Back-link a::before{
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url(./assets/arrow-left.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: -0.15em;
+  margin-right: 1em;
+}
+
+.Text-with-styling span{
+  font-weight: 700;
+}
+
+.Source-links{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Source-links {
+  margin: 16px 0;
+}
+
+.Source-links a::after{
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url(./assets/link.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: -0.15em;
+  margin-left: 1em;
+}
+
+.Lecture-links {
+  list-style: none;
+  padding: 0;
+
+}
+
+.Lecture-links div{
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding: 22px 0px;
+  border-bottom: 1px solid rgb(18, 41, 31);
+  cursor: pointer;
+}
+
+.Lecture-links div h3{
+  flex: 1 1 220px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.Lecture-number{
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  font-style: normal;
 }

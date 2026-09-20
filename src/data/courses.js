@@ -32,7 +32,7 @@ const algoLecture1 = {
 }
 
 const algoLecture2 = {
-    id: "algo2",
+    id: "2",
     topic: "...",
     date: "29. 9. 2026"
 }
@@ -52,10 +52,30 @@ const algo = {
     year: "2026/27",
     class: "LP-5002",
     time: "út 15:00 - 16:30",
-    conditions: "Účast na 10 z 12 cvičení, odevzdané domácí úkoly, zápočtový test min. 60 %.",
+    conditions: [
+        <>Během semestru se budou psát <span>dvě zápočtové písemky:</span> první přibližně v polovině semestru, druhá na jeho konci. Pro obě písemky bude vypsán jeden společný opravný termín v zápočtovém týdnu. Jiná náhrada není možná.</>,
+        <>K úspěšnému splnění zápočtu je nutné získat celkem alespoň <span>75 % bodů</span> z obou písemek dohromady.</>,
+        <>Povoleny jsou <span>maximálně 2 absence</span>. V případě dlouhodobé nemoci nebo jiných komplikací mě prosím včas kontaktujte.</>
+    ],
     sources: algoSources,
     lectures: algoLectures
 }
+
+
+const webSources = [
+
+]
+
+const webLecture1 = {
+    id: "1",
+    topic: "Úvodní cvičení",
+    date: "18. 2. 2025"
+}
+
+const webLectures = [
+    webLecture1,
+
+]
 
 
 /* Web */
@@ -66,13 +86,14 @@ const web = {
     description: "",
     semester: "L",
     year: "2025/26",
-    class: "LP-500",
+    class: "LP-5003",
     time: "út 15:00 - 16:30",
     conditions: "podmínky",
-    sources: [
-
-    ]
+    sources: webSources,
+    lectures: webLectures
 }
+
+
 
 const courses = [algo, web]
 

@@ -1,5 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { courses } from "../data/courses";
+import BackLink from "../components/BackLink";
+
+    
+
+
 
 function LecturePage() {
     const { courseId ,lectureId } = useParams();
@@ -7,7 +12,13 @@ function LecturePage() {
     const lecture = course.lectures.find((x) => (x.id === lectureId));
 
     return (
-        <h1>{lecture.topic}</h1>
+        <div>
+            <BackLink course={course} />
+            <h1>{lecture.topic}</h1>
+            <span>{(Number(lectureId) < 10) ? "0" + lectureId : lectureId}</span>
+            <span>{lecture.date}</span>
+        </div>
+
     )
 }
 
