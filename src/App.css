@@ -1,10 +1,9 @@
 /* ==========================================================================
    UTILITY
-   Malá sdílená vrstva – to, co se opakuje napříč stránkami.
    Prefix u- = utilita, kombinuje se s komponentovými třídami.
    ========================================================================== */
 
-/* Vodorovné omezení obsahu. Používá header, main i footer, proto všechno lícuje. */
+/* Vodorovné omezení obsahu */
 .u-wrap {
   width: 100%;
   max-width: var(--wrap);
@@ -14,7 +13,7 @@
   padding-right: var(--gutter);
 }
 
-/* Drobný verzálkový štítek – nadpisy sekcí, zpětný odkaz. */
+/* Verzálkový štítek – nadpisy sekcí, zpětný odkaz. */
 .u-label {
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
@@ -22,8 +21,7 @@
   text-transform: uppercase;
 }
 
-/* Kód kurzu a číslo cvičení – Silkscreen. Ten má jen řez 400, dojem
-   „tučnosti“ tu dělá prokládání, ne font-weight. */
+/* Kód kurzu a číslo cvičení – Silkscreen */
 .u-code {
   font-family: var(--font-display);
   font-weight: var(--fw-regular);
@@ -40,7 +38,6 @@
   animation: riseIn 0.5s ease both;
 }
 
-/* Reset seznamu – používají navigace i všechny výpisy. */
 .u-list-reset {
   list-style: none;
   margin: 0;
@@ -103,6 +100,16 @@
 .Icon-link::after {
   -webkit-mask-image: url(./assets/link.svg);
   mask-image: url(./assets/link.svg);
+}
+
+.Icon-hamburger::before {
+  -webkit-mask-image: url(./assets/hamburger.svg);
+  mask-image: url(./assets/hamburger.svg);
+}
+
+.Icon-close::before {
+  -webkit-mask-image: url(./assets/close.svg);
+  mask-image: url(./assets/close.svg);
 }
 
 /* ==========================================================================
@@ -228,6 +235,20 @@ h2 {
   font-weight: var(--fw-bold);
 }
 
+/* Hamburger – nad 640px schovaný, ikonu kreslí ::before přes masku.
+   Lokální --icon-gap: 0, protože u tlačítka nestojí žádný text. */
+.Header-toggle {
+  display: none;
+  --icon-size: 20px;
+  --icon-gap: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  line-height: 0;
+  cursor: pointer;
+}
+
 /* ==========================================================================
    ŘÁDEK SEZNAMU
    Odkaz obalující celý řádek (kurz i cvičení). Místo podtržení se při
@@ -342,7 +363,10 @@ h2 {
    ROZPIS CVIČENÍ
    ========================================================================== */
 
+/* Šířka sloupce s číslem je v proměnné – v úzkém layoutu podle ní
+   odsazuje datum, aby lícovalo s názvem cvičení. */
 .Lecture-row {
+  --number-width: 24px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -352,7 +376,7 @@ h2 {
 }
 
 .Lecture-number {
-  width: 24px;
+  width: var(--number-width);
   flex: none;
 }
 
@@ -400,4 +424,72 @@ h2 {
 .Footer-content a {
   display: inline-block;
   padding: 6px 0;
+}
+/* ==========================================================================
+   ÚZKÝ LAYOUT – DO 640px
+   Jediná zlomová šířka v projektu. Všechno ostatní se škáluje přes clamp()
+   v tokenech, takže tady řeším jen to, co se musí přeskládat.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /* --- Hlavička: navigace do hamburgeru -------------------------------- */
+
+  .Header-toggle {
+    display: block;
+  }
+
+  /* Navigace padá pod logo na vlastní řádek (Header-inner má flex-wrap)
+     a je vidět jen po otevření. */
+  .Header-nav {
+    display: none;
+    flex-basis: 100%;
+  }
+
+  .Header-nav.is-open {
+    display: block;
+    padding: var(--space-xs) 0;
+    border-top: var(--line) solid var(--color-line);
+  }
+
+  .Header-nav ul {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  /* --- Seznam kurzů: název pod zkratku, bez odsazení -------------------- */
+
+  .Course-shortcut {
+    width: 100%;
+  }
+
+  .Course-box__content {
+    flex-basis: 100%;
+  }
+
+  /* --- Rozpis cvičení: číslo a název na prvním řádku -------------------- */
+
+  /* Grid místo flexu: číslo a název drží společnou účaří v prvním řádku,
+     datum spadne do druhého řádku, ale zůstane v druhém sloupci – tedy
+     pod názvem, ne pod číslem. */
+  .Lecture-row {
+    display: grid;
+    grid-template-columns: var(--number-width) 1fr;
+  }
+
+  .Lecture-number {
+    width: auto;
+  }
+
+  .Lecture-date {
+    grid-column: 2;
+  }
+
+  /* --- Patička: pod sebe na střed --------------------------------------- */
+
+  .Footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-2xs);
+  }
 }
