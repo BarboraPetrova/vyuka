@@ -7,7 +7,8 @@
 const algoSources = [
     {name: "První slidy Prof. Bělohlávka", url: "https://soubor.inf.upol.cz/index.php/s/44LSDq3kPJZEx4s?dir=/&amp;editing=false&amp;openfile=true"},
     {name: "Druhé slidy Prof. Bělohlávka", url: "https://soubor.inf.upol.cz/index.php/s/PZ9LamA9yBT329b?dir=/&amp;editing=false&amp;openfile=true"},
-    {name: "Cormen Introduction to algorithms", url: "https://github.com/calvint/AlgorithmsOneProblems/blob/master/Algorithms/Thomas%20H.%20Cormen,%20Charles%20E.%20Leiserson,%20Ronald%20L.%20Rivest,%20Clifford%20Stein%20Introduction%20to%20Algorithms,%20Third%20Edition%20%202009.pdf"}
+    {name: "Cormen Introduction to algorithms", url: "https://github.com/calvint/AlgorithmsOneProblems/blob/master/Algorithms/Thomas%20H.%20Cormen,%20Charles%20E.%20Leiserson,%20Ronald%20L.%20Rivest,%20Clifford%20Stein%20Introduction%20to%20Algorithms,%20Third%20Edition%20%202009.pdf"},
+    {name: "Cvičebnice od kolegy Baloga", url: "https://luckyluke66.github.io/materialy/ALGO.pdf"}
 ]
 
 /* --- Algoritmy - hodiny ---------------------------------------------------- */
@@ -34,8 +35,8 @@ const algo = {
     time: "út 15:00 - 16:30",
     conditions: [
         <>Během semestru se budou psát <span>dvě zápočtové písemky:</span> první přibližně v polovině semestru, druhá na jeho konci. Pro obě písemky bude vypsán jeden společný opravný termín v zápočtovém týdnu. Jiná náhrada není možná.</>,
-        <>K úspěšnému splnění zápočtu je nutné získat celkem alespoň <span>75 % bodů</span> z obou písemek dohromady.</>,
-        <>Povoleny jsou <span>maximálně 2 absence</span>. V případě dlouhodobé nemoci nebo jiných komplikací mě prosím včas kontaktujte.</>
+        <>K úspěšnému splnění zápočtu je nutné získat z každé písemky alespoň <span>3/4 bodů</span>.</>,
+        <>Povoleny jsou <span>maximálně 3 absence</span>. V případě dlouhodobé nemoci nebo jiných komplikací mě prosím včas kontaktujte.</>
     ],
     tasks: [
         <>Ke každému cvičení budou zadány doplňující úkoly.</>
