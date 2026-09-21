@@ -1,23 +1,20 @@
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-function BackLink({course}) {
-    if (course){
-        return (
-        <div className="Back-link">
-            <Link to={"/courses/" + course.id}>
-                <span>{course.title}</span>
-            </Link>
-        </div>
-    );
-    } else {
-        return (
-            <div className="Back-link">
-                <Link to={"/"}>
-                    <span>Přehled kurzů</span>
-                </Link>
-            </div>
-        )
-    }
+function BackLink({ course }) {
+  const target = course ? '/courses/' + course.id : '/';
+  const label = course ? course.title : 'Přehled kurzů';
+
+  return (
+    <Link
+      to={target}
+      className={
+        'Back-link u-label Icon-left Icon-arrow-left' +
+        (course ? ' Back-link--lecture' : '')
+      }
+    >
+      {label}
+    </Link>
+  );
 }
 
 export default BackLink;

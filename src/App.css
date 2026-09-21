@@ -1,193 +1,403 @@
+/* ==========================================================================
+   UTILITY
+   Malá sdílená vrstva – to, co se opakuje napříč stránkami.
+   Prefix u- = utilita, kombinuje se s komponentovými třídami.
+   ========================================================================== */
 
-main{
-  max-width: 880px;
+/* Vodorovné omezení obsahu. Používá header, main i footer, proto všechno lícuje. */
+.u-wrap {
+  width: 100%;
+  max-width: var(--wrap);
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10em;
-  position: relative;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
-h1{
-  font-weight: 300;
-  font-size: clamp(2rem, 5.4vw, 4rem);
-  line-height: 1.25;
-  margin: 0px 0px 1rem;
-}
-
-h2{
-  margin-top: 6rem;
-  padding-bottom: 1rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.25rem;
+/* Drobný verzálkový štítek – nadpisy sekcí, zpětný odkaz. */
+.u-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  border-bottom: 1px solid rgb(18, 41, 31);
 }
 
-h3{
-  margin: 0 0 0.5rem 0;
+/* Kód kurzu a číslo cvičení – Silkscreen. Ten má jen řez 400, dojem
+   „tučnosti“ tu dělá prokládání, ne font-weight. */
+.u-code {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-xs);
+  font-style: normal;
+  letter-spacing: var(--ls-code);
+}
+
+.u-muted {
+  opacity: var(--opacity-muted);
+}
+
+.u-rise {
+  animation: riseIn 0.5s ease both;
+}
+
+/* Reset seznamu – používají navigace i všechny výpisy. */
+.u-list-reset {
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
+
+/* ==========================================================================
+   IKONY
+   Soubory v assets/ mají fill="currentColor". Přes background-image se
+   currentColor nevyhodnotí a ikona zčerná, proto maska + barva pozadí:
+   takhle ikona dědí barvu textu i prolnutí při hoveru.
+   Velikost i mezera jsou v em, takže rostou s textem, u kterého ikona stojí.
+   ========================================================================== */
+
+.Icon-left::before,
+.Icon-right::after {
+  content: "";
+  display: inline-block;
+  flex: none;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  vertical-align: -0.15em;
+}
+
+.Icon-left::before {
+  margin-right: var(--icon-gap);
+}
+
+.Icon-right::after {
+  margin-left: var(--icon-gap);
+}
+
+.Icon-email::before {
+  -webkit-mask-image: url(./assets/email.svg);
+  mask-image: url(./assets/email.svg);
+}
+
+.Icon-discord::before {
+  -webkit-mask-image: url(./assets/discord.svg);
+  mask-image: url(./assets/discord.svg);
+}
+
+.Icon-arrow-left::before {
+  -webkit-mask-image: url(./assets/arrow-left.svg);
+  mask-image: url(./assets/arrow-left.svg);
+}
+
+.Icon-arrow-right::after {
+  -webkit-mask-image: url(./assets/arrow-right.svg);
+  mask-image: url(./assets/arrow-right.svg);
+}
+
+.Icon-link::after {
+  -webkit-mask-image: url(./assets/link.svg);
+  mask-image: url(./assets/link.svg);
+}
+
+/* ==========================================================================
+   KOSTRA STRÁNKY
+   ========================================================================== */
+
+.App {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.Page {
+  padding-top: var(--page-top);
+  padding-bottom: var(--space-xl);
+}
+
+/* Podstránky (kurz, cvičení) začínají zpětným odkazem těsně pod hlavičkou.
+   Horní odsazení je stejné jako boční, takže obsah sedí v rámečku rovnoměrně.
+   Page--course a Page--lecture jsou jen staré názvy téhož – až je v JSX
+   přepíšeš na Page--inner, můžou ze selektoru zmizet. */
+.Page--inner,
+.Page--course,
+.Page--lecture {
+  padding-top: var(--gutter);
+}
+
+/* ==========================================================================
+   TYPOGRAFIE STRÁNEK
+   ========================================================================== */
+
+h1 {
+  margin: 0;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-tight);
+}
+
+.Title--list{
+  font-size: var(--fs-h1);
+}
+
+.Title--course {
+  font-size: var(--fs-h1);
+  margin-top: var(--space-2xs);
+  word-break: break-word;
+}
+
+.Title--lecture {
+  font-size: var(--fs-lg);
+  margin-top: var(--space-2xs);
+  text-wrap: balance;
+}
+
+/* Nadpis sekce = štítek + linka. Zůstává <h2> kvůli struktuře dokumentu. */
+h2 {
+  margin: var(--space-xl) 0 0;
+  padding-bottom: var(--space-xs);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  border-bottom: var(--line) solid var(--color-line);
+}
+
+.Lead {
+  margin: var(--space-sm) 0 0;
+  max-width: var(--measure-short);
+  text-wrap: pretty;
+}
+
+/* Běžný text – podmínky zápočtu. <strong> i <span> kvůli datům v courses.js. */
+.Text-block p {
+  margin: var(--space-sm) 0 0;
+  /* max-width: var(--measure); */
+}
+
+.Text-block strong,
+.Text-block span {
+  font-weight: var(--fw-bold);
+}
+
+/* ==========================================================================
+   HLAVIČKA
+   ========================================================================== */
+
+.Header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: var(--color-bg);
+  border-bottom: var(--line) solid var(--color-line);
+}
+
+.Header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xs) var(--space-sm);
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-xs);
+  font-size: var(--fs-sm);
+}
+
+.Header-nav ul {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.Header-nav a {
+  display: inline-block;
+  padding: 4px 0;
+}
+
+/* Aktivní položka navigace (NavLink doplní třídu sám). */
+.Header-nav a.active {
+  font-weight: var(--fw-bold);
+}
+
+/* ==========================================================================
+   ŘÁDEK SEZNAMU
+   Odkaz obalující celý řádek (kurz i cvičení). Místo podtržení se při
+   hoveru obsah odsadí doprava – proto musí být z globálního a:hover
+   vyjmutý, podtržení z rodiče by se v potomcích už nedalo zrušit.
+   ========================================================================== */
+
+.Row-link:hover,
+.Row-link:focus-visible {
+  text-decoration: none;
+}
+
+.Course-box,
+.Lecture-row {
+  transition: var(--transition-shift);
+}
+
+.Row-link:hover .Course-box,
+.Row-link:focus-visible .Course-box,
+.Row-link:hover .Lecture-row,
+.Row-link:focus-visible .Lecture-row {
+  padding-left: var(--hover-shift);
+}
+
+/* ==========================================================================
+   SEZNAM KURZŮ
+   ========================================================================== */
 
 .Course-box {
   display: flex;
-  align-items: baseline;
-  gap: 2rem;
   flex-wrap: wrap;
-  padding: 2rem 0;
-  border-bottom: 1px solid rgb(18, 41, 31);
-  cursor: pointer;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: var(--line) solid var(--color-line);
 }
 
-.Course-shortcut{
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 400;
-  font-size: 0.75rem;
-  font-style: normal;
+.Course-shortcut {
+  width: 120px;
+  flex: none;
 }
 
-.Course-meta{
-  display: flex;
-  font-size: 0.75rem;
+.Course-box__content {
+  flex: 1 1 240px;
+  min-width: 0;
 }
 
-.Course-meta > span:not(:last-child)::after  {
- content: "·";
- position: relative;
- height: 10px;
- margin: 0 1rem;
-}
-
-footer{
-  margin-top: 6rem;
-  border-top: 1px solid rgb(18, 41, 31);
-}
-
-header{
-  border-bottom: 1px solid rgb(18, 41, 31);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-}
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-}
-
-.footer-content{
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  gap: 2rem;
-  padding-top: 2rem;
-  display: flex;
-  
-}
-
-.footer-content a{
-  font-size: 0.75rem;
-}
-
-.footer-content a::before{
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: -0.15em;
-  margin-right: 0.4em;
-}
-
-.email::before{
-  background-image: url(./assets/email.svg);
-}
-
-.discord::before{
-  background-image: url(./assets/discord.svg);
-}
-
-.Back-link{
-  position: absolute;
-  top: 4rem;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-}
-
-.Back-link:hover{
-  border-bottom: 1px solid;
-  padding-bottom: 6px
-}
-
-.Back-link a::before{
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-image: url(./assets/arrow-left.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: -0.15em;
-  margin-right: 1em;
-}
-
-.Text-with-styling span{
-  font-weight: 700;
-}
-
-.Source-links{
-  list-style: none;
-  padding: 0;
+/* Šipku doplňuje ::after (.Icon-right .Icon-arrow-right).
+   Lokální --icon-size ji drží menší než nadpis, u kterého stojí. */
+.Course-name {
+  --icon-size: 0.7em;
   margin: 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
 }
+
+.Course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: var(--space-2xs);
+  font-size: var(--fs-sm);
+}
+
+/* Oddělovač v em, aby mezery seděly k velikosti písma kolem. */
+.Course-meta > span:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.75em;
+}
+
+/* Meta na detailu kurzu stojí samostatně pod nadpisem. */
+.Course-meta--detail {
+  margin-top: var(--space-sm);
+}
+
+/* ==========================================================================
+   ZPĚTNÝ ODKAZ
+   V běžném toku dokumentu, ne absolutně pozicovaný.
+   ========================================================================== */
+
+/* display: block + fit-content = blokový box na šířku textu: margin-bottom
+   se chová předvídatelně a zároveň se vykreslí podtržení při hoveru
+   (na flex kontejneru by se nenakreslilo). Ikonu srovná vertical-align. */
+.Back-link {
+  display: block;
+  width: fit-content;
+  margin-bottom: var(--space-lg);
+}
+
+.Back-link--lecture {
+  opacity: var(--opacity-muted);
+}
+
+/* ==========================================================================
+   ZDROJE
+   ========================================================================== */
 
 .Source-links {
-  margin: 16px 0;
-}
-
-.Source-links a::after{
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-image: url(./assets/link.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: -0.15em;
-  margin-left: 1em;
-}
-
-.Lecture-links {
-  list-style: none;
-  padding: 0;
-
-}
-
-.Lecture-links div{
   display: flex;
-  align-items: baseline;
-  gap: 22px;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: var(--space-sm);
+}
+
+.Source-links a {
+  display: inline-block;
+  width: fit-content;
+  padding: var(--space-2xs) 0;
+}
+
+/* ==========================================================================
+   ROZPIS CVIČENÍ
+   ========================================================================== */
+
+.Lecture-row {
+  display: flex;
   flex-wrap: wrap;
-  padding: 22px 0px;
-  border-bottom: 1px solid rgb(18, 41, 31);
-  cursor: pointer;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: var(--line) solid var(--color-line);
 }
 
-.Lecture-links div h3{
-  flex: 1 1 220px;
-  font-size: 16px;
-  font-weight: 300;
+.Lecture-number {
+  width: 24px;
+  flex: none;
 }
 
-.Lecture-number{
-  font-family: "Silkscreen", sans-serif;
-  font-weight: 400;
-  font-size: 0.75rem;
-  font-style: normal;
+.Lecture-topic {
+  flex: 1 1 240px;
+  min-width: 0;
+  margin: 0;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+}
+
+.Lecture-date {
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+
+/* Hlavička detailu cvičení – číslo + datum vedle sebe. */
+.Lecture-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  font-size: var(--fs-sm);
+}
+
+/* ==========================================================================
+   PATIČKA
+   ========================================================================== */
+
+.Footer {
+  margin-top: var(--space-xl);
+  border-top: var(--line) solid var(--color-line);
+}
+
+.Footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-md);
+  font-size: var(--fs-sm);
+}
+
+.Footer-content a {
+  display: inline-block;
+  padding: 6px 0;
 }

@@ -1,20 +1,144 @@
-* { box-sizing: border-box; }
+/* ==========================================================================
+   TOKENY
+   Jediné místo, kde jsou zapsané konkrétní hodnoty.
+
+   ========================================================================== */
+
+:root {
+  /* --- Barvy ------------------------------------------------------------ */
+  --color-bg: #e8e6da;
+  --color-ink: #15150f;
+  --color-line: #15150f;
+
+  /* --- Písmo ------------------------------------------------------------ */
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Silkscreen", var(--font-mono);  
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  /* --- Velikosti písma – pět stupňů -------------------------------------- */
+  --fs-xs: 0.75rem;                       /* 12px – štítky sekcí, kódy, čísla */
+  --fs-sm: 0.875rem;                      /* 14px – meta údaje, patička       */
+  --fs-md: 1rem;                          /* 16px – běžný text, perex         */
+  --fs-lg: clamp(1.25rem, 3vw, 1.5rem);   /* 20–24px – název kurzu v seznamu  */
+  --fs-h1: clamp(2.5rem, 9vw, 6rem);      /* 40–96px – nadpis stránky         */
+
+  /* --- Prokládání (em, drží poměr k velikosti písma) --------------------- */
+  --ls-label: 0.25em;   /* verzálkové štítky       */
+  --ls-code: 0.15em;    /* KMI/ALGO, čísla cvičení */
+  --ls-tight: -0.02em;  /* nadpisy                 */
+
+  /* --- Řádkování --------------------------------------------------------- */
+  --lh-base: 1.8;
+  --lh-h1: 1.1;
+
+  /* --- Šířka textu ------------------------------------------------------- */
+  --measure: 70ch;
+  --measure-short: 45ch;
+
+  /* --- Rozestupy – násobky osmi ------------------------------------------ */
+  --space-2xs: 8px;
+  --space-xs: 16px;
+  --space-sm: 24px;
+  --space-md: clamp(32px, 4vw, 48px);
+  --space-lg: clamp(48px, 7vw, 80px);
+  --space-xl: clamp(64px, 9vw, 112px);
+
+  /* --- Layout ------------------------------------------------------------ */
+  --wrap: 880px;   /* šířka obsahu – lícuje hlavička, main i patička */
+  --gutter: clamp(24px, 4vw, 40px);
+  --page-top: clamp(80px, 10vw, 144px);
+  --line: 1px;
+
+  /* --- Interakce --------------------------------------------------------- */
+  --underline-thickness: 1px;
+  --underline-offset: 5px;
+  --hover-shift: 12px;                        /* posun řádku při hoveru */
+  --transition-shift: padding-left 0.18s ease;
+  --opacity-muted: 0.8;
+
+  /* --- Ikony (em – rostou s textem, u kterého stojí) --------------------- */
+  --icon-size: 1em;
+  --icon-gap: 0.75em;
+}
+
+/* ==========================================================================
+   RESET A ZÁKLAD
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #eae7dd;
-  font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+
+  /* clip, ne hidden – „hidden“ na body rozbíjí position: sticky v hlavičce */
+  overflow-x: clip;
 }
 
-a { 
-  color: #12291f; 
-  text-decoration: none; 
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-  /* a { color: #12291f; text-decoration: none; }
-  a:hover { color: #12291f; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-  ::selection { background: #12291f; color: #efe9da; } */
+/* Hover odkazu = podtržení, barva zůstává. Výjimku mají řádky seznamů,
+   viz .Row-link v App.css – tam se místo podtržení odsazuje obsah. */
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: var(--underline-thickness);
+  text-underline-offset: var(--underline-offset);
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: var(--line) solid var(--color-ink);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   ANIMACE
+   ========================================================================== */
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

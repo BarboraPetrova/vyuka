@@ -1,22 +1,24 @@
 import { Link } from 'react-router-dom';
+import { formatSemester } from '../data/courses';
 
-function CourseItem({course}) {
+function CourseItem({ course }) {
   return (
-    <Link to={"/courses/" + course.id}>
-        <article className="Course-box">
-        <span className="Course-shortcut">{course.shortcut}</span>
+    <Link to={'/courses/' + course.id} className="Row-link">
+      <article className="Course-box">
+        <span className="Course-shortcut u-code">{course.shortcut}</span>
         <div className="Course-box__content">
-            <h3 className="Course-name">{course.title}</h3>
-            <div className="Course-meta">
-                <span className="Course-semester">{((course.semester === "Z") ? "Zimní semestr" : "Letní semestr")} {course.year}</span>
-                <span className="Course-time">{course.time}</span>
-                <span className="Course-class">{course.class}</span>
-            </div>
+          <h3 className="Course-name Icon-right Icon-arrow-right">
+            {course.title}
+          </h3>
+          <div className="Course-meta u-muted">
+            <span>{formatSemester(course)}</span>
+            <span>{course.time}</span>
+            <span>{course.class}</span>
+          </div>
         </div>
-        </article>
+      </article>
     </Link>
-  )
-
+  );
 }
 
 export default CourseItem;

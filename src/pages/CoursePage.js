@@ -1,82 +1,85 @@
-import { Link, useParams } from "react-router-dom";
-import { courses } from "../data/courses";
-import BackLink from "../components/BackLink";
+import { Link, useParams } from 'react-router-dom';
+import { courses, formatSemester, formatLectureNumber } from '../data/courses';
+import BackLink from '../components/BackLink';
+import NotFound from '../Notfound';
 
+function CoursePage() {
+  const { courseId } = useParams();
+  const course = courses.find((x) => x.id === courseId);
 
-function ErrorMessage(){
-    return (<h1>Tento kurz neučím :/</h1>)
-}
+  if (!course) {
+    return <NotFound message="Tento kurz neučím :/" />;
+  }
 
-function CoursePage (){
-    const { courseId } = useParams();
-    const course = courses.find((x) => (x.id === courseId));
+  return (
+    <div className="Page Page--course u-wrap u-rise">
+      <BackLink />
 
-    if (course === undefined){
-        return <ErrorMessage />;
-    }
-    
-    const sources = course.sources.map(({name, url}) => {
-        return (
-            <li key={url}>
-                <a href={url} className="Source-link">
-                    {name}
-                </a>
-            </li>
-        )
-    });   
+      <div className="Course-shortcut u-code">{course.shortcut}</div>
+      <h1 className="Title--course">{course.title}</h1>
+      <div className="Course-meta Course-meta--detail">
+        <span>{formatSemester(course)}</span>
+        <span>{course.time}</span>
+        <span>{course.class}</span>
+      </div>
 
-    const lectures = course.lectures.map(({id, topic, date}) => {
-        return (
+    <section>
+        <h2>Rozpis cvičení</h2>
+        <ul className="u-list-reset">
+            {course.lectures.map(({ id, topic, date }) => (
             <li key={id}>
-            <Link to={"/courses/" + course.id + "/lecture/" + id} >
-                <div>
-                    <span className="Lecture-number">{(Number(id) < 10) ? "0" + id : id}</span>
-                    <h3>{topic}</h3>
-                    <span>{date}</span>
+                <Link
+                to={'/courses/' + course.id + '/lecture/' + id}
+                className="Row-link"
+                >
+                <div className="Lecture-row">
+                    <span className="Lecture-number u-code">
+                    {formatLectureNumber(id)}
+                    </span>
+                    <h3 className="Lecture-topic">{topic}</h3>
+                    <span className="Lecture-date u-muted">{date}</span>
                 </div>
-            </Link>
+                </Link>
             </li>
-        )
-    });
+            ))}
+        </ul>
+    </section>
 
-    const conditions = course.conditions.map((condition) => {
-        return (
-            <p key={condition} className="Text-with-styling">{condition}</p>
-        )
-    });
+    <section className="Text-block">
+        <h2>Podmínky zápočtu</h2>
+        {course.conditions.map((condition, index) => (
+            <p key={index}>{condition}</p>
+        ))}
+    </section>
 
-    return (
-        <div>
-            <BackLink/>
-            <span className="Course-shortcut">{course.shortcut}</span>
-            <h1>{course.title}</h1> 
-            <div className="Course-meta">
-                <span>{course.semester === "Z" ? "Zimní semestr" : "Letní semestr"} {course.year}</span>
-                <span>{course.time}</span>
-                <span>{course.class}</span>
-            </div>
-            <div>
-                <section>
-                    <h2>Podmínky zápočtu</h2>
-                    <div>
-                        {conditions}
-                    </div>
-                </section>
-                <section>
-                    <h2>Zdroje</h2>
-                    <ul className="Source-links">
-                        {sources}
-                    </ul>
-                </section>
-            </div>
-            <section>
-                <h2>Rozpis cvičení</h2>
-                <ul className="Lecture-links">
-                    {lectures}
-                </ul>
-            </section>
-        </div>
-    ) 
+    <section className="Text-block">
+        <h2>Úkoly</h2>
+        {course.tasks.map((task, index) => (
+            <p key={index}>{task}</p>
+        ))}
+    </section>
+
+      <section>
+        <h2>Zdroje</h2>
+        <ul className="Source-links u-list-reset">
+          {course.sources.map(({ name, url }) => (
+            <li key={url}>
+              <a
+                className="Icon-right Icon-link"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      
+    </div>
+  );
 }
 
 export default CoursePage;
