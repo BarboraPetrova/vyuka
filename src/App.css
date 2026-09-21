@@ -30,9 +30,7 @@
   letter-spacing: var(--ls-code);
 }
 
-.u-muted {
-  opacity: var(--opacity-muted);
-}
+.u-muted { opacity: var(--opacity-muted); }
 
 .u-rise {
   animation: riseIn 0.5s ease both;
