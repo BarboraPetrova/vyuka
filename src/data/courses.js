@@ -1,3 +1,4 @@
+import { MathJax } from "better-react-mathjax"
 /* ==========================================================================
    KMI/ALGO - ALGORITMIZACE
    ========================================================================== */
@@ -15,12 +16,35 @@ const algoSources = [
 const algoLecture1 = {
     id: "1",
     topic: "Úvodní hodina, opakování elementárních funkcí",
-    date: "22. 9. 2026"
+    date: "22. 9. 2026",
+    content: [
+        <>V úvodní hodině jsme si prošli <span>podmínky zápočtu</span> a plánovanou <span>strukturu a obsah kurzu</span>. Jelikož hodina proběhla před první přednáškou, zopakovali jsme si <span>elementární funkce</span>.</>,
+        <>Zopakovali jsme si <span>základní terminologii spojenou s funkcemi</span> – funkční předpis a funkční hodnotu v bodě. Následně jsme se věnovali <span>základním vlastnostem funkcí</span>, konkrétně definičnímu oboru, oboru hodnot, monotonii, omezenosti a extrémům. Poté jsme postupně prošli <span>elementární funkce</span>, konkrétně lineární, kvadratickou, exponenciální, logaritmickou a goniometrické funkce a faktoriál. U jednotlivých funkcí jsme si zároveň určovali <span>jejich základní vlastnosti</span>.</>,
+        <>Studenti by měli být schopni <span>zakreslit do grafu libovolnou z uvedených elementárních funkcí a určit její základní vlastnosti</span>.</>
+    ],
+    tasks: [ 
+        <> Do jednoho souřadnicového systému zakreslete grafy následujících funkcí: 
+        <MathJax> 
+            {"\\begin{aligned} f(x)&=2x-3 \\\\ g(x)&=-\\frac{x}{2}+4 \\\\ h(x)&=(x-2)^2-3 \\\\ k(x)&=2^{x-1}+1 \\\\ l(x)&=\\log_2(x+2) \\end{aligned}"} 
+        </MathJax> 
+        U každé funkce určete podle typu funkce relevantní vlastnosti. <span> Zároveň se zaměřte na to, jak jednotlivé parametry ovlivňují tvar a polohu grafu. </span> 
+        </> 
+    ]
+}
+
+const algoLecture2 = {
+    id: "2",
+    topic: "Posloupnosti",
+    date: "29. 9. 2026",
+    content: [],
+    tasks: [],
+
 }
 
 
 const algoLectures = [
-    algoLecture1
+    algoLecture1,
+    algoLecture2
 ]
 
 /* --- Algoritmy - kurz ----------------------------------------------------- */

@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
+import { MathJaxContext } from 'better-react-mathjax';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <MathJaxContext>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </MathJaxContext>
   </React.StrictMode>
 );
 
