@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { courses, formatLectureNumber } from '../data/courses';
 import BackLink from '../components/BackLink';
 import NotFound from '../Notfound';
-import { MathJax } from 'better-react-mathjax';
 
 function LecturePage() {
   const { courseId, lectureId } = useParams();
