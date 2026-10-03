@@ -34,8 +34,23 @@ const algoLecture1 = {
 
 const algoLecture2 = {
     id: "2",
-    topic: "Posloupnosti",
+    topic: "Problém a algoritmus",
     date: "29. 9. 2026",
+    content: [
+        <>V úvodu hodiny studenti vyplnili <span>krátký opakovací kvíz zaměřený na elementární funkce</span>.</>,
+        <>Následně jsme si zopakovali <span>základní pojmy z přednášky</span>, konkrétně problém, instanci problému, rozhodovací problém, algoritmus a instrukci. Zaměřili jsme se především na <span>rozdíl mezi problémem a jeho instancí</span> a na určení <span>vstupní (IN) a výstupní (OUT) množiny problému</span>. Na konkrétních příkladech jsme si ukázali, jak lze problém formálně popsat a vytvořit jeho konkrétní instanci. Dále jsme se věnovali <span>vztahu mezi problémem a algoritmem</span> a algoritmus jsme chápali jako posloupnost jednoznačně definovaných instrukcí vedoucích k řešení problému.</>,
+        <>Studenti by měli být schopni <span>rozlišit problém a instanci problému, určit vstupní a výstupní množinu konkrétního problému a vytvořit jeho instanci</span>. Zároveň by měli <span>rozumět vztahu mezi problémem a algoritmem a být schopni navrhnout jednoduchý algoritmus jako posloupnost instrukcí</span>.</>
+    ],
+    tasks: [
+        <>Uvažujte problém <span>rozhodnutí, zda je zadané přirozené číslo prvočíslo</span>. Určete <span>vstupní (IN) a výstupní (OUT) množinu problému</span> a vytvořte alespoň dvě konkrétní instance (jednu, pro kterou je odpověď ano, a jednu, pro kterou je odpověď ne). Následně navrhněte <span>algoritmus jako posloupnost jednotlivých instrukcí</span>, který tento problém řeší. <span>Určete také, zda se jedná o rozhodovací problém, a své tvrzení zdůvodněte.</span></>
+    ],
+
+}
+
+const algoLecture3 = {
+    id: "3",
+    topic: "Euklidův algoritmus",
+    date: "6. 10. 2026",
     content: [],
     tasks: [],
 
@@ -44,7 +59,8 @@ const algoLecture2 = {
 
 const algoLectures = [
     algoLecture1,
-    algoLecture2
+    algoLecture2,
+    algoLecture3
 ]
 
 /* --- Algoritmy - kurz ----------------------------------------------------- */
