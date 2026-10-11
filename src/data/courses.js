@@ -49,18 +49,34 @@ const algoLecture2 = {
 
 const algoLecture3 = {
     id: "3",
-    topic: "Euklidův algoritmus",
+    topic: "Pseudokód a Euklidův algoritmus",
     date: "6. 10. 2026",
+    content: [
+        <>Navázali jsme na pojmy z předchozí hodiny a zaměřili se na <span>způsoby zápisu algoritmu</span>. Ukázali jsme si tři základní možnosti - popis pomocí přirozeného jazyka, zápis v konkrétním programovacím jazyce a zápis pomocí pseudokódu. Následně jsme se seznámili se <span>základními konstrukcemi pseudokódu</span>, které budeme v průběhu kurzu používat, například přiřazením, podmínkami, cykly, voláním funkcí, návratovou hodnotou a prací s poli.</>,
+        <>Dále jsme si představili <span>základní vlastnosti algoritmů</span>, kterými se budeme v následujících hodinách podrobněji zabývat (korektnost, složitost a optimalitu). U jednotlivých pojmů jsme si na jednoduchých příkladech vysvětlili jejich základní význam a motivaci. V závěru hodiny jsme se věnovali <span>hledání největšího společného dělitele</span> a na konkrétních vstupech jsme simulovali průběh <span>naivního a Eukleidova algoritmu</span>.</>,
+        <>Studenti by měli být schopni <span>přečíst jednoduchý pseudokód, sledovat jeho průběh a popsat, co daný algoritmus provádí</span>. V dalších hodinách se budeme postupně zaměřovat také na <span>samostatný návrh posloupnosti instrukcí a jejich zápis pomocí pseudokódu</span>.</>
+    ],
+    tasks: [
+        <>Navrhněte v pseudokódu algoritmus, kde IN: číslo x, OUT: jeho ciferný součet.</>,
+        <>Navrhněte v pseudokódu algoritmus, kde IN: číslo x, OUT: součet jeho dělitelů.</>
+    ],
+
+}
+
+const algoLecture4 = {
+    id: "4",
+    topic: "Časová složitost a rekurze",
+    date: "13. 10. 2026",
     content: [],
     tasks: [],
-
 }
 
 
 const algoLectures = [
     algoLecture1,
     algoLecture2,
-    algoLecture3
+    algoLecture3,
+    algoLecture4
 ]
 
 /* --- Algoritmy - kurz ----------------------------------------------------- */
