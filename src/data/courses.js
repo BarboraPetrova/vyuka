@@ -67,16 +67,32 @@ const algoLecture4 = {
     id: "4",
     topic: "Časová složitost a rekurze",
     date: "13. 10. 2026",
-    content: [],
-    tasks: [],
+    content: [
+        <>Na předchozí hodinu jsme navázali <span>rekurzivní verzí Eukleidova algoritmu</span>. Nejprve jsme si rekurzi vysvětlili intuitivně a následně jsme se zaměřili na <span>rekurzivní krok a ukončovací podmínku</span>. Princip rekurze jsme dále procvičili na algoritmech pro <span>výpočet faktoriálu a Fibonacciho posloupnosti</span>.</>,
+        <>Ve druhé části hodiny jsme se věnovali <span>časové složitosti algoritmů</span>. Nejprve jsme si intuitivně vysvětlili, co znamená závislost množství vykonané práce na velikosti vstupu, a následně jsme přešli k <span>formální definici časové složitosti v nejhorším a průměrném případě</span>. Na jednoduchých algoritmech jsme určovali velikost vstupu, počet provedených elementárních kroků a z nich odvozovali časovou složitost. V závěru jsme si na motivačním příkladu porovnali <span>rychlost růstu různých funkcí</span>, na což navážeme v dalších hodinách při zavedení asymptotických mezí.</>,
+        <>Studenti by si měli z hodiny odnést <span>základní představu o fungování rekurzivního algoritmu</span> a měli by být schopni navrhnout jednoduchý rekurzivní algoritmus včetně jeho ukončovací podmínky. Zároveň by měli být schopni <span>správně definovat časovou složitost algoritmu</span>, rozlišit časovou složitost v nejhorším a průměrném případě a u jednoduchého algoritmu přibližně určit její průběh. Důraz je především na správné pochopení a formulaci pojmu časová složitost.</>
+    ],
+    tasks: [
+        <>Navrhněte dvě varianty algoritmu pro <span>výpočet n-tého členu Fibonacciho posloupnosti</span> – jednu rekurzivní a jednu nerekurzivní. Obě varianty zapište pomocí pseudokódu. Následně porovnejte <span>časovou složitost obou algoritmů</span> a vysvětlete, proč se jejich časová složitost liší.</>
+    ]
 }
+
+const algoLecture5 = {
+    id: "5",
+    topic: "Insertion sort a Selection sort",
+    date: "20. 10. 2026",
+    content: [],
+    tasks: []
+}
+
 
 
 const algoLectures = [
     algoLecture1,
     algoLecture2,
     algoLecture3,
-    algoLecture4
+    algoLecture4,
+    algoLecture5
 ]
 
 /* --- Algoritmy - kurz ----------------------------------------------------- */
