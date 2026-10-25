@@ -79,12 +79,26 @@ const algoLecture4 = {
 
 const algoLecture5 = {
     id: "5",
-    topic: "Insertion sort a Selection sort",
+    topic: "Insertion sort",
     date: "20. 10. 2026",
+    content: [
+        <>Jediným tématem hodiny byl první třídicí (řadicí) algoritmus <span>Insertion sort</span>. V úvodu jsme si zopakovali <span>problém třídění a jeho vstupní a výstupní množinu</span>.</>,
+        <>Následně jsme si ukázali, že existuje <span>více algoritmů třídění</span> a že některé z nich jsou velmi intuitivní. Poté jsme společně postupně odvodili <span>korektní pseudokód Insertion sortu</span> a provedli jeho simulaci na několika vstupech.</>,
+        <>Studenti by měli být schopni popsat princip Insertion sortu, zapsat jeho pseudokód a sledovat jeho průběh na konkrétním vstupu.</>
+    ],
+    tasks: [
+        <>Naprogramujte <span>Insertion sort</span> v libovolném programovacím jazyce.</>,
+        <>Upravte Insertion sort tak, aby třídil <span>vzestupně nebo sestupně</span> na základě volitelného parametru.</>
+    ]
+}
+
+const algoLecture6 = {
+    id: "6",
+    topic: "Selection sort",
+    date: "27. 10. 2026",
     content: [],
     tasks: []
 }
-
 
 
 const algoLectures = [
@@ -92,7 +106,8 @@ const algoLectures = [
     algoLecture2,
     algoLecture3,
     algoLecture4,
-    algoLecture5
+    algoLecture5,
+    algoLecture6
 ]
 
 /* --- Algoritmy - kurz ----------------------------------------------------- */
