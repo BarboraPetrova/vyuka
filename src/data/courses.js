@@ -97,7 +97,10 @@ const algoLecture6 = {
     topic: "Selection sort",
     date: "27. 10. 2026",
     content: [],
-    tasks: []
+    tasks: [
+        <>Naprogramujte <span>Selection sort</span> v libovolném programovacím jazyce.</>,
+        <>Upravte Selection sort tak, aby fungoval výběrem <span>největšího prvku</span>.</>
+    ]
 }
 
 
