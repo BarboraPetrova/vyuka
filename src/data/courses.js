@@ -12,6 +12,8 @@ const algoSources = [
     {name: "Cvičebnice od kolegy Baloga", url: "https://luckyluke66.github.io/materialy/ALGO.pdf"}
 ]
 
+
+
 /* --- Algoritmy - hodiny ---------------------------------------------------- */
 const algoLecture1 = {
     id: "1",
@@ -96,13 +98,55 @@ const algoLecture6 = {
     id: "6",
     topic: "Selection sort",
     date: "27. 10. 2026",
-    content: [],
+    content: [
+        <>Na hodině jsme podrobně probrali další třídicí algoritmus <span>Selection sort</span>. Nejprve jsme společně odvodili jeho <span>pseudokód</span> a následně jsme provedli <span>simulaci algoritmu</span> na konkrétním vstupu.</>,
+        <>Obdobně jako v minulém týdnu by studenti měli být schopni <span>popsat princip Selection sortu, zapsat jeho pseudokód a sledovat jeho průběh na konkrétním vstupu</span>.</>
+    ],
     tasks: [
         <>Naprogramujte <span>Selection sort</span> v libovolném programovacím jazyce.</>,
         <>Upravte Selection sort tak, aby fungoval výběrem <span>největšího prvku</span>.</>
     ]
 }
 
+const algoLecture7 = {
+    id: "7",
+    topic: "O-notace",
+    date: "3. 11. 2026",
+    content: [
+        <>Na začátku hodiny studenti napsali <span>krátkou písemku na pseudokód</span>. Body z písemky a z odevzdaných domácích úkolů jsou k dispozici pod vaším osobním číslem na <a href="https://docs.google.com/spreadsheets/d/15I2LRXHdkGZ2-MYaxuf4sSiF7PWd4tKg4rM5ZEr2Hsw/edit?usp=sharing" target="_blank" rel="noopener noreferrer">tomto odkazu</a> (budu postupně dopňovat).</>,
+        <>Zbytek hodiny jsme věnovali <span>základům O-notace</span>. Zavedli jsme <span>asymptotickou horní mez <MathJax inline>{"\\(O(g)\\)"}</MathJax></span>, <span>asymptotickou dolní mez <MathJax inline>{"\\(\\Omega(g)\\)"}</MathJax></span> a <span>asymptotickou oboustrannou (těsnou) mez <MathJax inline>{"\\(\\Theta(g)\\)"}</MathJax></span> pro funkci <MathJax inline>{"\\(g(n)\\)"}</MathJax>.</>,
+        <>Studenti by měli <span>rozumět těmto základním pojmům a znát jejich formální definice i grafické znázornění</span>. Zároveň by měli být schopni <span>dokázat, že daná funkce patří do některé z uvedených tříd</span> (viz příklady ze cvičení a úkoly).</>,
+        <>Na příští hodině budeme psát <span>první zápočtovou písemku</span>. Bude obsahovat úlohy na pseudokód, O-notaci a funkce, libovolnou teorii probíranou na přednášce nebo cvičení a také <span>důkaz některé z vlastností nebo vět o O-notaci</span> (viz slidy z přednášky nebo cvičebnice kolegy Baloga, kapitola 6; pozor, některá řešení úloh v ní obsahují chyby).</>,
+        <>Protože O-notace patří mezi koncepčně náročnější témata, můžete mi <span>do soboty 7. 11. 2026 do 14:00</span> poslat e-mailem nebo přes Discord svá řešení úloh na O-notaci. Do nedělního večera se vám pokusím poslat zpětnou vazbu. <span>Úlohy nejsou povinné</span>, slouží pouze k procvičení.</>
+    ],
+    tasks: [
+        <>Rozhodněte, zda platí následující tvrzení, a své rozhodnutí dokažte:
+        <ul>
+            <li><MathJax inline>{"\\(2n^2 - 4 \\in O(n^2)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(0.5n^3 \\in O(20n^2)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(n^2 \\in \\Omega(2n^2 - 4)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(2n^2 - 4 \\in \\Omega(n^2)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(n^2 + 3n \\in \\Theta(n^2)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(3n^2 + 5n + 1 \\in \\Theta(n^2)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(2n^3 - 10 \\in O(n^3)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(12 \\log n + 3n \\in \\Theta(n \\log n)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(\\frac{n^2 + 4n - 5}{n - 1} \\in O(n)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(n \\log n \\in O(n^2)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(2^{n+1} \\in O(2^n)\\)"}</MathJax></li>
+            <li><MathJax inline>{"\\(2^{2n} \\in O(2^n)\\)"}</MathJax></li>
+        </ul>
+        Není nutné odevzdávat všechny příklady + některé jsme dělali na hodině.
+        </>
+    ]
+}
+
+const algoLecture8 = {
+    id: "8",
+    topic: "1. Zápočtová písemka",
+    date: "10. 11. 2026",
+    content: [],
+    tasks: []
+}
 
 const algoLectures = [
     algoLecture1,
@@ -110,7 +154,9 @@ const algoLectures = [
     algoLecture3,
     algoLecture4,
     algoLecture5,
-    algoLecture6
+    algoLecture6,
+    algoLecture7,
+    algoLecture8
 ]
 
 /* --- Algoritmy - kurz ----------------------------------------------------- */

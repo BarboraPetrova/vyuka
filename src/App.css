@@ -172,6 +172,12 @@ h2 {
 .Text-block strong,
 .Text-block span { font-weight: var(--fw-bold); }
 
+.Text-block a {
+  text-decoration: underline;
+  text-decoration-thickness: var(--underline-thickness);
+  text-underline-offset: var(--underline-offset);
+}
+
 /* ==========================================================================
    HLAVIČKA
    ========================================================================== */
