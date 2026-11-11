@@ -14,6 +14,8 @@ const algoSources = [
 
 
 
+const algoScoresUrl = "https://docs.google.com/spreadsheets/d/15I2LRXHdkGZ2-MYaxuf4sSiF7PWd4tKg4rM5ZEr2Hsw/edit?usp=sharing"
+
 /* --- Algoritmy - hodiny ---------------------------------------------------- */
 const algoLecture1 = {
     id: "1",
@@ -113,7 +115,7 @@ const algoLecture7 = {
     topic: "O-notace",
     date: "3. 11. 2026",
     content: [
-        <>Na začátku hodiny studenti napsali <span>krátkou písemku na pseudokód</span>. Body z písemky a z odevzdaných domácích úkolů jsou k dispozici pod vaším osobním číslem na <a href="https://docs.google.com/spreadsheets/d/15I2LRXHdkGZ2-MYaxuf4sSiF7PWd4tKg4rM5ZEr2Hsw/edit?usp=sharing" target="_blank" rel="noopener noreferrer">tomto odkazu</a> (budu postupně dopňovat).</>,
+        <>Na začátku hodiny studenti napsali <span>krátkou písemku na pseudokód</span>. Body z písemky a z odevzdaných domácích úkolů jsou k dispozici pod vaším osobním číslem na <a href={algoScoresUrl} target="_blank" rel="noopener noreferrer">tomto odkazu</a> (budu postupně dopňovat).</>,
         <>Zbytek hodiny jsme věnovali <span>základům O-notace</span>. Zavedli jsme <span>asymptotickou horní mez <MathJax inline>{"\\(O(g)\\)"}</MathJax></span>, <span>asymptotickou dolní mez <MathJax inline>{"\\(\\Omega(g)\\)"}</MathJax></span> a <span>asymptotickou oboustrannou (těsnou) mez <MathJax inline>{"\\(\\Theta(g)\\)"}</MathJax></span> pro funkci <MathJax inline>{"\\(g(n)\\)"}</MathJax>.</>,
         <>Studenti by měli <span>rozumět těmto základním pojmům a znát jejich formální definice i grafické znázornění</span>. Zároveň by měli být schopni <span>dokázat, že daná funkce patří do některé z uvedených tříd</span> (viz příklady ze cvičení a úkoly).</>,
         <>Na příští hodině budeme psát <span>první zápočtovou písemku</span>. Bude obsahovat úlohy na pseudokód, O-notaci a funkce, libovolnou teorii probíranou na přednášce nebo cvičení a také <span>důkaz některé z vlastností nebo vět o O-notaci</span> (viz slidy z přednášky nebo cvičebnice kolegy Baloga, kapitola 6; pozor, některá řešení úloh v ní obsahují chyby).</>,
@@ -172,7 +174,8 @@ const algo = {
     conditions: [
         <>Během semestru se budou psát <span>dvě zápočtové písemky:</span> první přibližně v polovině semestru, druhá na jeho konci. Pro obě písemky bude vypsán jeden společný opravný termín v zápočtovém týdnu. Jiná náhrada není možná.</>,
         <>K úspěšnému splnění zápočtu je nutné získat z každé písemky alespoň <span>3/4 bodů</span>.</>,
-        <>Povoleny jsou <span>maximálně 3 absence</span>. V případě dlouhodobé nemoci nebo jiných komplikací mě prosím včas kontaktujte.</>
+        <>Povoleny jsou <span>maximálně 3 absence</span>. V případě dlouhodobé nemoci nebo jiných komplikací mě prosím včas kontaktujte.</>,
+        <>Body z písemek a odevzdaných domácích úkolů najdete pod svým osobním číslem v <a href={algoScoresUrl} target="_blank" rel="noopener noreferrer">této tabulce</a>.</>
     ],
     tasks: [
         <>Ke každému cvičení budou zadány doplňující úkoly.</>
